@@ -12,15 +12,6 @@ export const fetchStarship = createAsyncThunk(
   }
 );
 
-export const fetchStarshipImage = createAsyncThunk(
-  "starship/getImage",
-  async () => {
-    const res = await axios(
-      `https://starwars-visualguide.com/assets/img/starships/`
-    );
-    console.log(res.data);
-  }
-);
 /** Data extraction with axios via API -end- */
 
 export const starWarsSlice = createSlice({
@@ -33,7 +24,12 @@ export const starWarsSlice = createSlice({
     error: "",
     mode: JSON.parse(localStorage.getItem("theme")) || false,
   },
-  reducers: {},
+  reducers: {
+    modeChange: (state) => {
+      localStorage.setItem("theme", JSON.stringify(!state.mode));
+      state.mode = JSON.parse(localStorage.getItem("theme"));
+    },
+  },
 
   extraReducers: {
     [fetchStarship.pending]: (state) => {
