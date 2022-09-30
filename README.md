@@ -103,4 +103,5 @@ npm start
 ```sh
 npm run build
 ```
-
+### Proje Videosu
+[recording-2022-09-30-22-53-21.webm](https://user-images.githubusercontent.com/85495654/193346808-bebf9de0-ebba-4185-87c1-39048f545a17.webm)
