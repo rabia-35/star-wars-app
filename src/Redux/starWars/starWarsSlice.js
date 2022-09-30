@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-/** Data extraction with axios via API -start- */
+/** fetchStarship start */
 export const fetchStarship = createAsyncThunk(
   "starship/getStarship",
   async (pageNum) => {
@@ -12,7 +12,7 @@ export const fetchStarship = createAsyncThunk(
   }
 );
 
-/** Data extraction with axios via API -end- */
+/** fetchStarship ending */
 
 export const starWarsSlice = createSlice({
   name: "starships",

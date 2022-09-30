@@ -27,6 +27,8 @@ const Search = () => {
           />
         </form>
       </div>
+
+      {/*********** Error Message **********/}
       {error.length > 0 && (
         <div className=" align-items-center mt-2 text-center ">{error}</div>
       )}

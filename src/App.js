@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Home from "Components/pages/Home";
 import Favourites from "Components/pages/Favourites";
@@ -7,11 +8,13 @@ import Detail from "Components/pages/Detail";
 import Starships from "Components/pages/Starships/starships";
 import "./App.css";
 import Navbar from "Components/Navbar/navbar";
-import { useSelector } from "react-redux";
 
 function App() {
   const mode = useSelector((state) => state.starships.mode);
 
+  {
+    /**** bgColor and color change according to mode start ****/
+  }
   let bgColor = "";
   let color = "";
   if (!mode) {
@@ -20,6 +23,10 @@ function App() {
   } else {
     bgColor = "#ffffff";
     color = "black";
+  }
+
+  {
+    /**** bgColor and color change according to mode ending ****/
   }
   return (
     <Router>

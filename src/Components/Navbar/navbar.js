@@ -29,6 +29,7 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+        {/**  Logo start  */}
         <Link to="/">
           <img
             className="navbar-brand ms-5 logo"
@@ -36,8 +37,10 @@ const Navbar = () => {
             alt="Star wars logo"
           />
         </Link>
+        {/** Logo ending   */}
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+          {/** Nav-item start */}
           <ul className="navbar-nav me-auto ">
             <li className="nav-item mx-5">
               <Link to="/">HOME</Link>
@@ -49,6 +52,8 @@ const Navbar = () => {
               <Link to={`/favourites/${favorites.length}`}>FAVORİTES</Link>
             </li>
           </ul>
+          {/** Nav-item ending */}
+          {/** Mode button start */}
           <div
             className={`mode rounded-circle me-5 ${
               mode ? "mode-light" : "mode-dark"
@@ -61,6 +66,7 @@ const Navbar = () => {
               <FontAwesomeIcon icon={faMoon} className="text-secondary" />
             )}
           </div>
+          {/** Mode button ending */}
         </div>
       </div>
     </nav>

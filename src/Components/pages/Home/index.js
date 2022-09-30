@@ -21,6 +21,7 @@ const Home = () => {
     >
       <div className="container">
         <div className="row justify-content-end align-items-center">
+          {/********** Show image in dark mode start *********/}
           {!mode && (
             <div className="col-12 col-lg-6">
               <img
@@ -29,11 +30,15 @@ const Home = () => {
               />
             </div>
           )}
+          {/********* Show image in dark mode ending **********/}
+
           <div className="col-12 col-lg-6 text-center">
             <h1>WELCOME TO THE STAR WARS UNIVERSSE</h1>
             <p className="w-75 mt-3">
               ARE YOU READY TO TAKE A RİDE AMONG THE STARSHİPS OF STAR WARS ?
             </p>
+
+            {/********* All Starships button start **********/}
             <Link
               to="/starships"
               className="btn btn-outline-warning mx-auto mt-4"
@@ -41,6 +46,7 @@ const Home = () => {
             >
               All Starships
             </Link>
+            {/*********  All Starships button ending *********/}
           </div>
         </div>
       </div>

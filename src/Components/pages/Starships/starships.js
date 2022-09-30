@@ -20,13 +20,17 @@ const Starships = () => {
   const [page, setPage] = useState(6);
 
   const dispatch = useDispatch();
-
+  {
+    /*********** All data pulled function  start ***********/
+  }
   useEffect(() => {
     for (let i = 1; i < 5; i++) {
       dispatch(fetchStarship(i));
     }
   }, [dispatch]);
-
+  {
+    /*********** All data pulled function ending ***********/
+  }
   const handleClick = () => {
     setPage(page + 6);
   };
@@ -48,6 +52,7 @@ const Starships = () => {
         <Search />
       </div>
       <div className="row pb-5">
+        {/*** starship parameter sent to Card when there is starships and there is no filteredStarship  start **/}
         {starships && filteredStarship.length < 1 && (
           <>
             {starships.map(
@@ -67,6 +72,9 @@ const Starships = () => {
             )}
           </>
         )}
+        {/*** starship parameter sent to Card when there is starships and there is no filteredStarship ending */}
+
+        {/*** starship parameter sent to Card when there is filteredStarship  start **/}
         {filteredStarship.length > 0 && (
           <>
             <Card starship={filteredStarship[0]} />
@@ -82,6 +90,9 @@ const Starships = () => {
             </div>
           </>
         )}
+        {/**  starship parameter sent to Card when there is filteredStarship ending **/}
+
+        {/** button and icon to show whether filteredStarship start **/}
         {filteredStarship.length < 1 && (
           <div
             role="button"
@@ -92,6 +103,7 @@ const Starships = () => {
             <p>Başa Dön</p>
           </div>
         )}
+        {/** button and icon to show whether filteredStarship ending **/}
       </div>
     </div>
   );
