@@ -13,9 +13,9 @@ const Starships = () => {
   const starships = useSelector((state) => state.starships.items);
   const status = useSelector((state) => state.starships.status);
 
-  // const filteredStarship = useSelector(
-  //   (state) => state.starships.filteredStarship
-  // );
+  const filteredStarship = useSelector(
+    (state) => state.starships.filteredStarship
+  );
 
   const [page, setPage] = useState(6);
 
@@ -41,7 +41,7 @@ const Starships = () => {
         <Search />
       </div>
       <div className="row pb-5">
-        {starships && (
+        {starships && filteredStarship.length < 1 && (
           <>
             {starships.map(
               (starship, i) =>
@@ -60,14 +60,31 @@ const Starships = () => {
             )}
           </>
         )}
-        <div
-          role="button"
-          className="text-muted text-center mt-3"
-          onClick={scrollWin}
-        >
-          <FontAwesomeIcon icon={faChevronUp} className="fa-2x me-2" />
-          <p>Başa Dön</p>
-        </div>
+        {filteredStarship.length > 0 && (
+          <>
+            <Card starship={filteredStarship[0]} />
+            <div className="d-flex justify-content-center">
+              <button
+                type="button"
+                className=" back-page btn btn-link text-muted text-decoration-none d-flex align-items-center"
+                onClick={() => dispatch(backStarships())}
+              >
+                <FontAwesomeIcon icon={faCaretLeft} className="fa-2x" />
+                <span>Back to Starships Page</span>
+              </button>
+            </div>
+          </>
+        )}
+        {filteredStarship.length < 1 && (
+          <div
+            role="button"
+            className="text-muted text-center mt-3"
+            onClick={scrollWin}
+          >
+            <FontAwesomeIcon icon={faChevronUp} className="fa-2x me-2" />
+            <p>Başa Dön</p>
+          </div>
+        )}
       </div>
     </div>
   );
