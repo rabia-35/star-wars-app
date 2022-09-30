@@ -83,7 +83,9 @@ export const starWarsSlice = createSlice({
       state.status = "loading";
     },
     [fetchStarship.fulfilled]: (state, action) => {
-      state.items = [...state.items, ...action.payload.results];
+      if (state.items.length < 31) {
+        state.items = [...state.items, ...action.payload.results];
+      }
       state.status = "succeeded";
       state.error = "";
     },
