@@ -31,6 +31,13 @@ const Starships = () => {
     setPage(page + 6);
   };
 
+  if (status === "loading") {
+    return <Loading />;
+  }
+  if (status === "failed") {
+    return <Error />;
+  }
+
   const scrollWin = () => {
     window.scrollTo(0, 0);
   };
