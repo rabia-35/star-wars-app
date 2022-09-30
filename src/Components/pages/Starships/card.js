@@ -52,9 +52,11 @@ const Card = ({ starship }) => {
               {/********* Card-info  start   ****************/}
               <div className="card-info">
                 <h1 className="card-title fs-6">{starship.name}</h1>
-                <p className="card-text mb-1 mb-xl-0">
+                <p className="card-text  mb-lg-4">
                   <strong>Model </strong>
-                  <span className="ms-2 fst-italic">{starship.model}</span>
+                  <span className="ms-2 fst-italic mb-5-lg">
+                    {starship.model}
+                  </span>
                 </p>
                 <p className="card-text text-muted">
                   <strong>Hyperdrive Rating </strong>
