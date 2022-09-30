@@ -12,8 +12,6 @@ const Card = ({ starship }) => {
   const [onStar, setOnStar] = useState();
   const dispatch = useDispatch();
 
-  const detailName = starship.name.match(/\w+/g).join("-");
-
   useEffect(() => {
     if (onStar) {
       dispatch(addFavorites(starship));
@@ -25,6 +23,8 @@ const Card = ({ starship }) => {
   const handleClick = () => {
     onStar ? setOnStar(false) : setOnStar(true);
   };
+
+  const detailName = starship.name.match(/\w+/g).join("-");
 
   return (
     <div className=" col-12 col-sm-6 col-lg-4  mx-auto ">
