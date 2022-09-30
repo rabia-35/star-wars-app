@@ -70,6 +70,7 @@ export const starWarsSlice = createSlice({
     [fetchStarship.fulfilled]: (state, action) => {
       state.items = [...state.items, ...action.payload.results];
       state.status = "succeeded";
+      state.error = "";
     },
 
     [fetchStarship.rejected]: (state, action) => {
