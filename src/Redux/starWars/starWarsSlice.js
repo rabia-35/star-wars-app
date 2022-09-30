@@ -19,7 +19,7 @@ export const starWarsSlice = createSlice({
   initialState: {
     items: [],
     filteredStarship: [],
-    favorites: [],
+    favorites: JSON.parse(localStorage.getItem("favorites")) || [],
     status: "idle",
     error: "",
     mode: JSON.parse(localStorage.getItem("theme")) || false,
@@ -34,8 +34,10 @@ export const starWarsSlice = createSlice({
 
       const filtered = state.items.filter(
         (item) =>
-          item.model.toLowerCase() === text || item.name.toLowerCase() === text
+          item.model.toLowerCase().includes(text) ||
+          item.name.toLowerCase().includes(text)
       );
+
       if (filtered.length > 0) {
         state.filteredStarship = [...filtered];
         state.error = "";
@@ -48,18 +50,31 @@ export const starWarsSlice = createSlice({
     },
     addFavorites: (state, action) => {
       const favorite = action.payload;
-      const bool = state.favorites.every((item) => item.url !== favorite.url);
-      if (bool) {
-        state.favorites.push(favorite);
+
+      if (!localStorage.favorites) {
+        localStorage.setItem("favorites", JSON.stringify([favorite]));
+      } else {
+        let localFavorites = JSON.parse(localStorage.getItem("favorites"));
+        const bool = localFavorites.every((item) => item.url !== favorite.url);
+
+        if (bool) {
+          localFavorites.push(favorite);
+          localStorage.setItem("favorites", JSON.stringify(localFavorites));
+        }
       }
+      state.favorites = JSON.parse(localStorage.getItem("favorites"));
     },
     removeFavorites: (state, action) => {
       const removeUrl = action.payload;
-      for (let i = 0; i < state.favorites.length; i++) {
-        if (state.favorites[i].url === removeUrl) {
-          state.favorites.splice(i, 1);
+      let localFavorites = JSON.parse(localStorage.getItem("favorites"));
+
+      for (let i = 0; i < localFavorites.length; i++) {
+        if (localFavorites[i].url === removeUrl) {
+          localFavorites.splice(i, 1);
         }
       }
+      localStorage.setItem("favorites", JSON.stringify(localFavorites));
+      state.favorites = JSON.parse(localStorage.getItem("favorites"));
     },
   },
 

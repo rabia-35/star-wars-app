@@ -24,6 +24,11 @@ const Card = ({ starship }) => {
     onStar ? setOnStar(false) : setOnStar(true);
   };
 
+  const removeFavoriteClick = () => {
+    setOnStar(false);
+  };
+  const onFavorite = favorites.every((item) => item.url !== starship.url);
+
   const detailName = starship.name.match(/\w+/g).join("-");
 
   return (
@@ -67,7 +72,7 @@ const Card = ({ starship }) => {
                     <FontAwesomeIcon
                       icon={faStar}
                       className={
-                        favorites.includes(starship)
+                        onStar || !onFavorite
                           ? "text-warning"
                           : "text-secondary"
                       }
@@ -81,7 +86,7 @@ const Card = ({ starship }) => {
                   <div
                     role="button"
                     className="text-secondary"
-                    onClick={() => dispatch(removeFavorites(starship.url))}
+                    onClick={removeFavoriteClick}
                   >
                     <FontAwesomeIcon
                       icon={faTrashCan}
