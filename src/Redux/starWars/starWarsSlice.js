@@ -46,6 +46,13 @@ export const starWarsSlice = createSlice({
     backStarships: (state) => {
       state.filteredStarship = [];
     },
+    addFavorites: (state, action) => {
+      const favorite = action.payload;
+      const bool = state.favorites.every((item) => item.url !== favorite.url);
+      if (bool) {
+        state.favorites.push(favorite);
+      }
+    },
   },
 
   extraReducers: {
