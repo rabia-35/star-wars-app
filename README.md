@@ -6,6 +6,33 @@
 * Axios
 * Fortawesome
 
+## Kurulum
+
+1. Clone the repo
+
+```sh
+git clone https://github.com/rabia-35/star-wars-app.git
+```
+
+2. Run project
+
+```sh
+npm run start
+```
+
+## Komut Dosyaları
+
+1. Projeyi ayağa kaldırmak için
+
+```sh
+npm start
+```
+
+2. Projeyi dağıtmak için
+
+```sh
+npm run build
+```
 
  Bu projemde `axios` ile starships datalarını çektim. Data linkleri page parametresi ve 4 page bulunmakta `${process.env.REACT_APP_API_BASE_ENDPOINT}/?page=${page}` Load More butonu ile tek tek pull etmek yerine döngü içerisinde tek seferde tüm dataları çektim buradaki amacım search kısmına sayfada olmayan starship ismi/model yazıldığında da datanın filter edilebilmesi.
  
@@ -76,32 +103,5 @@ localStorage.setItem("theme", JSON.stringify(!state.mode));
 }
 ```
 
-## Kurulum
-
-1. Clone the repo
-
-```sh
-git clone https://github.com/rabia-35/star-wars-app.git
-```
-
-2. Run project
-
-```sh
-npm run start
-```
-
-## Komut Dosyaları
-
-1. Projeyi ayağa kaldırmak için
-
-```sh
-npm start
-```
-
-2. Projeyi dağıtmak için
-
-```sh
-npm run build
-```
 ### Proje Videosu
 [recording-2022-09-30-22-53-21.webm](https://user-images.githubusercontent.com/85495654/193346808-bebf9de0-ebba-4185-87c1-39048f545a17.webm)
