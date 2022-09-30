@@ -53,6 +53,14 @@ export const starWarsSlice = createSlice({
         state.favorites.push(favorite);
       }
     },
+    removeFavorites: (state, action) => {
+      const removeUrl = action.payload;
+      for (let i = 0; i < state.favorites.length; i++) {
+        if (state.favorites[i].url === removeUrl) {
+          state.favorites.splice(i, 1);
+        }
+      }
+    },
   },
 
   extraReducers: {
