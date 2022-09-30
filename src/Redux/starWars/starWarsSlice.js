@@ -43,6 +43,9 @@ export const starWarsSlice = createSlice({
         state.error = "Starship not found";
       }
     },
+    backStarships: (state) => {
+      state.filteredStarship = [];
+    },
   },
 
   extraReducers: {
