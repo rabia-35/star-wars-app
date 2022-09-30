@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Star Wars's Starships App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* React
+* Redux
+* React-Router
+* Axios
+* Fortawesome
 
-## Available Scripts
 
-In the project directory, you can run:
+ Bu projemde `axios` ile starships datalarını çektim. Data linkleri page parametresi ve 4 page bulunmakta `${process.env.REACT_APP_API_BASE_ENDPOINT}/?page=${page}` Load More butonu ile tek tek pull etmek yerine döngü içerisinde tek seferde tüm dataları çektim buradaki amacım search kısmına sayfada olmayan starship ismi/model yazıldığında da datanın filter edilebilmesi.
+ 
+ Search kısmına eşleşmeyen bir text yazıldığında Error mesajı görülmektedir.
+ 
+Card kısmındaki görsele basınca Detail sayfasına yönlendirme olmakta veya direk Detail butonuna basarakta yönlendirilebilirsiniz.
 
-### `npm start`
+```javascript
+{<Link
+      to={`/starships/${detailName}`}
+      className="btn btn-outline-warning "
+       >
+        Detail
+</Link>
+} 
+```
+ Starships sayfasının dışında bir yerde iseniz size oraya yönlendirmenizi sağlayacak `Back to Starships Page` butonu bulunmaktadır. 
+ ```javascript
+ {
+ <Link
+          to="/starships"
+          className="back-page text-decoration-none text-muted d-flex align-items-center"
+        >
+          <FontAwesomeIcon icon={faCaretLeft} className="fa-2x" />
+          <span>Back to Starships Page</span>
+        </Link>
+ }
+ ```
+ Starships sayfasında alt kısmınlara indikten sonra en üst kısma çıkmak için `Back to top` butonu bulunmakta
+ ```javascript
+ {
+ <div
+            role="button"
+            className="text-muted text-center mt-3"
+            onClick={scrollWin}
+          >
+            <FontAwesomeIcon icon={faChevronUp} className="fa-2x me-2" />
+            <p>Back to top</p>
+          </div>
+ }
+ ```
+  ```javascript
+ {
+const scrollWin = () => {
+    window.scrollTo(0, 0);
+  };
+ }
+ ```
+ Starship'i favorilere eklemek isterseniz Card içinde favori ekleme iconu bulunmakta. Favoriler kısmında icon değişmektedir ve favoriden kaldırma iconu gelmektedir. 
+ ```javascript
+ {
+  <div onClick={handleClick} role="button">
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      className={
+                        favorites.includes(starship)
+                          ? "text-warning"
+                          : "text-secondary"
+                      }
+                    />
+ }
+ ```   
+ Navbar içerisnde theme'yı değiştirecek iconlar bulunmakta ve theme sayfa render edilsebile en son haliyle kalması için `localStorage` üzerinden alınmakta. 
+```javascript
+{
+localStorage.setItem("theme", JSON.stringify(!state.mode));
+      state.mode = JSON.parse(localStorage.getItem("theme"));
+}
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Kurulum
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repo
 
-### `npm test`
+```sh
+git clone https://github.com/rabia-35/star-wars-app.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Run project
 
-### `npm run build`
+```sh
+npm run start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Komut Dosyaları
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Projeyi ayağa kaldırmak için
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+npm start
+```
 
-### `npm run eject`
+2. Projeyi dağıtmak için
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+npm run build
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
