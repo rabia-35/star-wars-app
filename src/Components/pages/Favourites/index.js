@@ -14,7 +14,7 @@ const Favourite = () => {
       <div className="row">
         {/** sending favorite data to card as parameter */}
 
-        {favorites &&
+        {favorites.length > 0 &&
           favorites.map((favorite) => (
             <Card key={favorite.url} starship={favorite} />
           ))}
