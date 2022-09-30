@@ -33,6 +33,9 @@ npm start
 ```sh
 npm run build
 ```
+#### Netlify
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3b0f0243-a5de-4628-a11c-6ad63bdc5616/deploy-status)](https://app.netlify.com/sites/starwars-starships-app/deploys)
+
 ### Proje Açıklaması
  Bu projemde `axios` ile starships datalarını çektim. Data linkleri page parametresi ve 4 page bulunmakta `${process.env.REACT_APP_API_BASE_ENDPOINT}/?page=${page}` Load More butonu ile tek tek pull etmek yerine döngü içerisinde tek seferde tüm dataları çektim buradaki amacım search kısmına sayfada olmayan starship ismi/model yazıldığında da datanın filter edilebilmesi.
  
