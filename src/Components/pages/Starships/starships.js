@@ -102,7 +102,7 @@ const Starships = () => {
             onClick={scrollWin}
           >
             <FontAwesomeIcon icon={faChevronUp} className="fa-2x me-2" />
-            <p>Başa Dön</p>
+            <p>Back to top</p>
           </div>
         )}
         {/** button and icon to show whether filteredStarship ending **/}
