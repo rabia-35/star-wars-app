@@ -29,6 +29,20 @@ export const starWarsSlice = createSlice({
       localStorage.setItem("theme", JSON.stringify(!state.mode));
       state.mode = JSON.parse(localStorage.getItem("theme"));
     },
+    filtered: (state, action) => {
+      const text = action.payload.toLowerCase();
+
+      const filtered = state.items.filter(
+        (item) =>
+          item.model.toLowerCase() === text || item.name.toLowerCase() === text
+      );
+      if (filtered.length > 0) {
+        state.filteredStarship = [...filtered];
+        state.error = "";
+      } else {
+        state.error = "Starship not found";
+      }
+    },
   },
 
   extraReducers: {
