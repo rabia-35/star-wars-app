@@ -1,4 +1,4 @@
-# Star Wars's Starships App
+# Star Wars'un Starships Uygulaması
 
 * React
 * Redux
