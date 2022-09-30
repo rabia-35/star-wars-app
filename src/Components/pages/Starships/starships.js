@@ -77,7 +77,9 @@ const Starships = () => {
         {/*** starship parameter sent to Card when there is filteredStarship  start **/}
         {filteredStarship.length > 0 && (
           <>
-            <Card starship={filteredStarship[0]} />
+            {filteredStarship.map((starship) => (
+              <Card key={starship.url} starship={starship} />
+            ))}
             <div className="d-flex justify-content-center">
               <button
                 type="button"
