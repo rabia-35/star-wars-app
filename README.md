@@ -33,7 +33,7 @@ npm start
 ```sh
 npm run build
 ```
-
+### Proje Açıklaması
  Bu projemde `axios` ile starships datalarını çektim. Data linkleri page parametresi ve 4 page bulunmakta `${process.env.REACT_APP_API_BASE_ENDPOINT}/?page=${page}` Load More butonu ile tek tek pull etmek yerine döngü içerisinde tek seferde tüm dataları çektim buradaki amacım search kısmına sayfada olmayan starship ismi/model yazıldığında da datanın filter edilebilmesi.
  
  Search kısmına eşleşmeyen bir text yazıldığında Error mesajı görülmektedir.
