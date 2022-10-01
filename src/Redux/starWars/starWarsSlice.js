@@ -31,7 +31,7 @@ export const starWarsSlice = createSlice({
     },
     filtered: (state, action) => {
       const text = action.payload.toLowerCase();
-      state.filteredStarship = [];
+
       const filtered = state.items.filter(
         (item) =>
           item.model.toLowerCase().includes(text) ||
