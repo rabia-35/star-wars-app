@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faChevronUp } from "@fortawesome/free-solid-svg-icons";
@@ -111,4 +111,4 @@ const Starships = () => {
   );
 };
 
-export default Starships;
+export default React.memo(Starships);
