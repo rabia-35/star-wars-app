@@ -46,10 +46,10 @@ const Navbar = () => {
               <Link to="/">HOME</Link>
             </li>
             <li className="nav-item">
-              <Link to={`/starships`}>STARSHİPS</Link>
+              <Link to={`/starships`}>STARSHIPS</Link>
             </li>
             <li className="nav-item mx-5">
-              <Link to={`/favourites/${favorites.length}`}>FAVORİTES</Link>
+              <Link to={`/favourites/${favorites.length}`}>FAVORITES</Link>
             </li>
           </ul>
           {/** Nav-item ending */}
