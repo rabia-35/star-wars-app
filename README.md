@@ -5,6 +5,7 @@
 * React-Router
 * Axios
 * Fortawesome
+* Bootstrap
 
 ## Kurulum
 
