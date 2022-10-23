@@ -31,9 +31,30 @@ const Starships = () => {
   {
     /*********** All data pulled function ending ***********/
   }
-  const handleClick = () => {
-    setPage(page + 6);
+
+  {
+    /*********** throttle function for Load more button- start */
+  }
+  const throttle = (func, limit) => {
+    let inThrottle;
+    return function () {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    };
   };
+
+  {
+    /*********** throttle function for Load more button- ending */
+  }
+
+  const handleClick = throttle(() => {
+    setPage(page + 6);
+  }, 1000);
 
   if (status === "loading") {
     return <Loading />;
