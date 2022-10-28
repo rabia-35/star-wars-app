@@ -2,12 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import Home from "Components/pages/Home";
-import Favourites from "Components/pages/Favourites";
-import Detail from "Components/pages/Detail";
-import Starships from "Components/pages/Starships/starships";
+import Home from "pages/Home";
+import Favourites from "pages/Favourites";
+import Detail from "pages/Detail";
+import Starships from "pages/StarshipsList";
 import "./App.css";
-import Navbar from "Components/Navbar/navbar";
+import Navbar from "components/Navbar";
+import Page404 from "pages/Page404";
 
 function App() {
   const mode = useSelector((state) => state.starships.mode);
@@ -37,6 +38,7 @@ function App() {
           <Route path="/favourites/:number" element={<Favourites />} />
           <Route path="/starships/:name" element={<Detail />} />
           <Route exact path="/starships" element={<Starships />} />
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </div>
     </Router>
