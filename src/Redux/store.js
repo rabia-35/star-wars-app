@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import starWarsSlice from "./starWars/starWarsSlice";
+import starWarsSlice from "./StarWarsSlice";
 
 export const store = configureStore({
   reducer: {
