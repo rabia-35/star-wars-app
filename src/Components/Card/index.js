@@ -38,7 +38,7 @@ const Card = ({ starship }) => {
     >
       <div className="card mb-3">
         <div className="row g-0">
-          {/********** Link to detail page  start ***********/}
+          {/********** Link to detail page   ***********/}
           <Link
             to={`/starships/${detailName}`}
             className="col-md-6 img-background text-center py-4 px-md-"
@@ -49,10 +49,9 @@ const Card = ({ starship }) => {
               alt={detailName}
             />
           </Link>
-          {/**********  Link to detail page  ending **********/}
+
           <div className="col-md-6 text-dark">
             <div className="card-body">
-              {/********* Card-info  start   ****************/}
               <div className="card-info">
                 <h1 className="card-title fs-6">{starship.name}</h1>
                 <p className="card-text  mb-lg-4">
@@ -68,10 +67,9 @@ const Card = ({ starship }) => {
                   </span>
                 </p>
               </div>
-              {/************ Card-info ending  ************/}
 
               <div className="d-flex justify-content-between">
-                {/**** Icon to show when number is not present start ****/}
+                {/**** Icon to show when number is not present  ****/}
                 {!number && (
                   <div onClick={handleClick} role="button">
                     <FontAwesomeIcon
@@ -84,9 +82,7 @@ const Card = ({ starship }) => {
                     />
                   </div>
                 )}
-                {/******** Icon to show when number is not present ending *******/}
 
-                {/********* Icon to show when number is present start **********/}
                 {number && (
                   <div
                     role="button"
@@ -99,15 +95,13 @@ const Card = ({ starship }) => {
                     />
                   </div>
                 )}
-                {/********** Icon to show when number is present ending ********/}
-                {/*********** Link to detail page start ***********/}
+
                 <Link
                   to={`/starships/${detailName}`}
                   className="btn btn-outline-warning "
                 >
                   Detail
                 </Link>
-                {/*********** Link to detail page ending ***********/}
               </div>
             </div>
           </div>
