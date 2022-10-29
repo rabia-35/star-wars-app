@@ -24,8 +24,6 @@ const Starships = () => {
   const page = useSelector((state) => state.starships.page);
   const dispatch = useDispatch();
 
-  //With page in default state All data is pulled and at the end of each page change page is saved to sessionLocal
-
   useEffect(() => {
     dispatch(fetchStarship());
     let position = sessionStorage.getItem("position");
@@ -34,6 +32,7 @@ const Starships = () => {
     }
   }, [dispatch]);
 
+  // page state sent to fetchLoadMoreStarships as parameter
   const handleClick = () => {
     dispatch(fetchLoadMoreStarship(page));
     if (page < 6) {
@@ -55,7 +54,6 @@ const Starships = () => {
         <Search />
       </div>
       <div className="row pb-5">
-        {/*** starship parameter sent to Card when there is starships and there is no filteredStarship  start **/}
         {starships && filteredStarship.length < 1 && (
           <>
             {starships.map((starship, i) => (
@@ -65,9 +63,10 @@ const Starships = () => {
             {starships.length > 0 && starships.length < 36 && (
               <div className="text-center mt-4">
                 <button
-                  className="btn btn-lg  btn-outline-warning"
+                  className="btn btn-lg  btn-outline-warning d-flex"
                   onClick={handleClick}
                 >
+                  {status === "loading" && <Loading />}
                   Load More
                 </button>
               </div>
@@ -82,14 +81,14 @@ const Starships = () => {
             </div>
           </>
         )}
-        {/*** starship parameter sent to Card when there is starships and there is no filteredStarship ending */}
 
-        {/*** starship parameter sent to Card when there is filteredStarship  start **/}
+        {/*** starship parameter sent to Card when there is filteredStarship  **/}
         {filteredStarship.length > 0 && (
           <>
             {filteredStarship.map((starship) => (
               <Card key={starship.url} starship={starship} />
             ))}
+            {status === "loading" && <Loading />}
             <div className="d-flex justify-content-center">
               <button
                 type="button"
@@ -102,7 +101,6 @@ const Starships = () => {
             </div>
           </>
         )}
-        {status === "loading" && <Loading />}
       </div>
     </div>
   );
