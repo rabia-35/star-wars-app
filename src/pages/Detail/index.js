@@ -19,7 +19,6 @@ const Detail = () => {
 
   return (
     <div className="container mt-5">
-      {/** display of detail data information start */}
       <div className="d-flex justify-content-center">
         {detail && (
           <div className="row p-4 d-flex justify-content-evenly align-items-center detail-border ">
@@ -66,9 +65,7 @@ const Detail = () => {
           </div>
         )}
       </div>
-      {/** display of detail data information ending */}
 
-      {/** Back to Starships link start */}
       <div className="d-flex justify-content-center">
         <Link
           to="/starships"
@@ -78,7 +75,6 @@ const Detail = () => {
           <span>Back to Starships Page</span>
         </Link>
       </div>
-      {/** Back to Starships link ending */}
     </div>
   );
 };
