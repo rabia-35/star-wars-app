@@ -19,14 +19,12 @@ const Favourite = () => {
             <Card key={favorite.url} starship={favorite} />
           ))}
 
-        {/** text to be shown in case you do not have favorite data */}
-
         {favorites.length < 1 && (
           <div className="text-center text-muted fs-4 my-5">
             <p>There is no favorite starship.</p>
           </div>
         )}
-        {/** Back to Starships link start */}
+
         <div className="d-flex justify-content-center mt-5 ">
           <Link
             to="/starships"
@@ -36,7 +34,6 @@ const Favourite = () => {
             <span>Back to Starships Page</span>
           </Link>
         </div>
-        {/** Back to Starships link ending */}
       </div>
     </div>
   );
