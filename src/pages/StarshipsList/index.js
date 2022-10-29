@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretLeft, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faCaretLeft, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 import Card from "../../components/Card";
 import {
@@ -47,7 +47,7 @@ const Starships = () => {
   const scrollWin = () => {
     window.scrollTo(0, 0);
   };
-  console.log(starships);
+
   return (
     <div className="container mt-5">
       <div className="row">
@@ -59,25 +59,25 @@ const Starships = () => {
             {starships.map((starship, i) => (
               <Card key={starship.url} starship={starship} index={i} />
             ))}
-
-            {starships.length > 0 && starships.length < 36 && (
-              <div className="text-center mt-4">
-                <button
-                  className="btn btn-lg  btn-outline-warning d-flex"
-                  onClick={handleClick}
-                >
-                  {status === "loading" && <Loading />}
-                  Load More
-                </button>
+            {status === "loading" && <Loading />}
+            <div className="d-flex mt-5">
+              {starships.length > 0 && starships.length < 36 && (
+                <div className="ms-auto">
+                  <button
+                    className="btn btn-lg  btn-outline-warning"
+                    onClick={handleClick}
+                  >
+                    Load More
+                  </button>
+                </div>
+              )}
+              <div
+                role="button"
+                className="text-center back-top ms-auto"
+                onClick={scrollWin}
+              >
+                <FontAwesomeIcon icon={faArrowUp} className="fa-2x " />
               </div>
-            )}
-            <div
-              role="button"
-              className="text-center text-muted"
-              onClick={scrollWin}
-            >
-              <FontAwesomeIcon icon={faChevronUp} className="fa-2x me-2" />
-              <p>Back to top</p>
             </div>
           </>
         )}
