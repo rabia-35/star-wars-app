@@ -13,9 +13,6 @@ import Page404 from "pages/Page404";
 function App() {
   const mode = useSelector((state) => state.starships.mode);
 
-  {
-    /**** bgColor and color change according to mode start ****/
-  }
   let bgColor = "";
   let color = "";
   if (!mode) {
@@ -26,9 +23,6 @@ function App() {
     color = "black";
   }
 
-  {
-    /**** bgColor and color change according to mode ending ****/
-  }
   return (
     <Router>
       <div className="App" style={{ backgroundColor: bgColor, color: color }}>
