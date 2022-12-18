@@ -1,0 +1,17 @@
+.detail-border {
+  width: 70%;
+  border: 2px solid aliceblue;
+  background-color: #dddddda1;
+  color: black;
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.325);
+}
+
+.detail-info {
+  border-left: 2px solid #dddddd;
+}
+@media (max-width: 990px) {
+  .detail-border {
+    width: 100%;
+  }
+}
