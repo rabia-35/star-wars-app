@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
+import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretLeft, faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 
 import Card from "../../components/Card";
 import {
@@ -35,7 +36,7 @@ const Starships = () => {
   // page state sent to fetchLoadMoreStarships as parameter
   const handleClick = () => {
     dispatch(fetchLoadMoreStarship(page));
-    if (page < 6) {
+    if (page < 5) {
       dispatch(savePage(page + 1));
     }
   };
@@ -43,10 +44,6 @@ const Starships = () => {
   if (status === "failed") {
     return <Error />;
   }
-
-  const scrollWin = () => {
-    window.scrollTo(0, 0);
-  };
 
   return (
     <div className="container mt-5">
@@ -60,25 +57,17 @@ const Starships = () => {
               <Card key={starship.url} starship={starship} index={i} />
             ))}
             {status === "loading" && <Loading />}
-            <div className="d-flex mt-5">
-              {starships.length > 0 && starships.length < 36 && (
-                <div className="ms-auto">
-                  <button
-                    className="btn btn-lg  btn-outline-warning"
-                    onClick={handleClick}
-                  >
-                    Load More
-                  </button>
-                </div>
-              )}
-              <div
-                role="button"
-                className="text-center back-top ms-auto"
-                onClick={scrollWin}
-              >
-                <FontAwesomeIcon icon={faArrowUp} className="fa-2x " />
+
+            {starships.length > 0 && starships.length < 36 && (
+              <div className="load-more-btn text-center mt-3">
+                <button
+                  className="btn btn-lg  btn-outline-warning"
+                  onClick={handleClick}
+                >
+                  Load More
+                </button>
               </div>
-            </div>
+            )}
           </>
         )}
 
