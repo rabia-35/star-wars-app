@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { modeChange } from "redux/StarWarsSlice";
@@ -41,13 +42,13 @@ const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul className="navbar-nav me-auto ">
-            <li className="nav-item mx-5">
+            <li className="nav-item">
               <Link to="/">HOME</Link>
             </li>
             <li className="nav-item">
               <Link to={`/starships`}>STARSHIPS</Link>
             </li>
-            <li className="nav-item mx-5">
+            <li className="nav-item">
               <Link to={`/favourites/${favorites.length}`}>FAVORITES</Link>
             </li>
           </ul>
