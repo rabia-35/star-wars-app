@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 import { useSelector } from "react-redux";
 import { useParams, Navigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
