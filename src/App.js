@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -9,10 +9,12 @@ import Starships from "pages/StarshipsList";
 import "./App.css";
 import Navbar from "components/Navbar";
 import Page404 from "pages/Page404";
+import Footer from "components/Footer";
 
 function App() {
   const mode = useSelector((state) => state.starships.mode);
-
+  const page = useSelector((state) => state.starships.page);
+  const [position, setPosition] = useState(false);
   let bgColor = "";
   let color = "";
   if (!mode) {
@@ -22,7 +24,7 @@ function App() {
     bgColor = "#ffffff";
     color = "black";
   }
-
+  console.log(page);
   return (
     <Router>
       <div className="App" style={{ backgroundColor: bgColor, color: color }}>
@@ -34,6 +36,12 @@ function App() {
           <Route exact path="/starships" element={<Starships />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
+
+        {page > 1 && (
+          <>
+            <Footer />
+          </>
+        )}
       </div>
     </Router>
   );
