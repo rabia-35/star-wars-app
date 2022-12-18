@@ -13,7 +13,7 @@ export const fetchLoadMoreStarship = createAsyncThunk(
   "starship/getLoadMoreStarship",
   async (page) => {
     const res = await axios(
-      `${process.env.REACT_APP_API_BASE_ENDPOINT}/?page=${page}`
+      `${process.env.REACT_APP_API_BASE_ENDPOINT}/?page=${page + 1}`
     );
     return res.data;
   }
@@ -25,7 +25,6 @@ export const searchStarship = createAsyncThunk(
     const res = await axios(
       `${process.env.REACT_APP_API_BASE_ENDPOINT}/?search=${text}`
     );
-    console.log(res.data.results);
     return res.data.results;
   }
 );
@@ -39,7 +38,7 @@ export const starWarsSlice = createSlice({
     status: "idle",
     error: "",
     mode: JSON.parse(localStorage.getItem("theme")) || false,
-    page: 2,
+    page: 1,
   },
   reducers: {
     savePage: (state, action) => {
