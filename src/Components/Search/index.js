@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchStarship } from "redux/StarWarsSlice";
 
@@ -7,16 +7,16 @@ const Search = () => {
   const error = useSelector((state) => state.starships.error);
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(searchStarship(text));
-    setText("");
-  };
+  useEffect(() => {
+    if (text.length > 2) {
+      dispatch(searchStarship(text));
+    }
+  }, [dispatch, text]);
 
   return (
     <>
       <div className="d-flex justify-content-center">
-        <form className="input-group  mb-3" onSubmit={handleSubmit}>
+        <form className="input-group  mb-3" onSubmit={() => setText("")}>
           <input
             type="search"
             className="form-control"
