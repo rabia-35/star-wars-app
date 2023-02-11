@@ -11,8 +11,20 @@
     color: gray;
     transition: color 0.5s ease;
   }
+  .navbar-expand-lg .navbar-nav .nav-item a::after{
+    content: "";
+    display: block;
+    width: 0px;
+    height: 2px;
+    transition: all 0.5s ease-out;
+    background-color:#ffc107;
+  }
   .navbar-expand-lg .navbar-nav .nav-item a:hover {
     color: #ffc107;
+  }
+  .navbar-expand-lg .navbar-nav .nav-item a:hover::after{
+    width: 100%;
+    transition: all 0.5s ease-in;
   }
   .mode {
     width: 40px;
