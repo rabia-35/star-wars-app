@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { modeChange } from "redux/StarWarsSlice";
+import { modeChange,backStarships } from "redux/StarWarsSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
@@ -43,13 +43,13 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul className="navbar-nav me-auto ">
             <li className="nav-item">
-              <Link to="/">HOME</Link>
+              <Link to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link to={`/starships`}>STARSHIPS</Link>
+              <Link to="/starships" onClick={() => dispatch(backStarships())}>Starships</Link>
             </li>
             <li className="nav-item">
-              <Link to={`/favourites/${favorites.length}`}>FAVORITES</Link>
+              <Link to={`/favourites/${favorites.length}`}>Favourites</Link>
             </li>
           </ul>
 
