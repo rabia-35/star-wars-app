@@ -51,7 +51,7 @@ const Starships = () => {
         <Search />
       </div>
       <div className="row pb-5">
-        {starships && filteredStarship.length < 1 && (
+        {starships && filteredStarship.length < 1  && (
           <>
             {starships.map((starship, i) => (
               <Card key={starship.url} starship={starship} index={i} />
@@ -60,17 +60,13 @@ const Starships = () => {
 
             {starships.length > 0 && starships.length < 36 && (
               <div className="load-more-btn text-center mt-3">
-                <button
-                  className="btn btn-lg  btn-outline-warning"
-                  onClick={handleClick}
-                >
-                  Load More
+                <button className="text-muted" onClick={handleClick}>
+                  <span>Load More</span>
                 </button>
               </div>
             )}
           </>
         )}
-
         {/*** starship parameter sent to Card when there is filteredStarship  **/}
         {filteredStarship.length > 0 && (
           <>
