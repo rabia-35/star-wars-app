@@ -48,7 +48,6 @@ export const starWarsSlice = createSlice({
       localStorage.setItem("theme", JSON.stringify(!state.mode));
       state.mode = JSON.parse(localStorage.getItem("theme"));
     },
-
     backStarships: (state) => {
       state.filteredStarship = [];
     },
@@ -116,6 +115,7 @@ export const starWarsSlice = createSlice({
       state.status = "loading";
     },
     [searchStarship.fulfilled]: (state, action) => {
+      state.filteredShow=false;
       const filtered = action.payload;
       state.filteredStarship = filtered;
       state.status = "succeeded";
@@ -132,6 +132,6 @@ export const {
   backStarships,
   addFavorites,
   removeFavorites,
-  savePage,
+  savePage
 } = starWarsSlice.actions;
 export default starWarsSlice.reducer;
